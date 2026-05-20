@@ -1,5 +1,12 @@
 # 🚀 Terraform AWS 3-Tier Platform
 
+<p align="center">
+  <img src="screenshots/aws_3tier_banner.svg" alt="AWS 3-Tier Architecture Banner" width="100%">
+</p>
+<p align="center">
+  <b>Terraform • AWS • Docker • EC2 • VPC • Infrastructure as Code</b>
+</p>
+
 > Production-grade AWS 3-Tier Architecture automated with Terraform, modular IaC design, Docker-based application stack, and full EC2 networking on AWS.
 
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?style=for-the-badge&logo=terraform)
