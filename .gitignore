@@ -1,5 +1,15 @@
+# Terraform state
 *.tfstate
 *.tfstate.backup
+
+# Terraform working directory
 .terraform/
+.terraform.lock.hcl
+
+# SSH Keys
 terraform-key
 terraform-key.pub
+*.pem
+
+# Optional
+crash.log
