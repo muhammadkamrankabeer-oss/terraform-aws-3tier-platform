@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ============================================================ -->
+    <!-- TITLE                                                         -->
+    <!-- ============================================================ -->
+    <mxCell id="title"
+      value="&lt;b&gt;terraform-aws-3tier-platform&lt;/b&gt;&lt;br&gt;&lt;font style=&apos;font-size:11px;&apos; color=&apos;#666666&apos;&gt;AWS Architecture Diagram · Provisioned by Terraform&lt;/font&gt;"
+      style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;"
+      vertex="1" parent="1">
+      <mxGeometry x="490" y="30" width="460" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- AWS CLOUD BOUNDARY                                            -->
+    <!-- ============================================================ -->
+    <mxCell id="aws-cloud"
+      value="&lt;b&gt;AWS Cloud&lt;/b&gt;"
+      style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=#FFFFFF;verticalLabelPosition=top;verticalAlign=bottom;align=center;spacingBottom=0;dashed=0;fontStyle=1;fontSize=13;fontColor=#232F3E;"
+      vertex="1" parent="1">
+      <mxGeometry x="160" y="100" width="1100" height="980" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- VPC BOUNDARY                                                  -->
+    <!-- ============================================================ -->
+    <mxCell id="vpc"
+      value="&lt;b&gt;VPC&lt;/b&gt;&lt;br&gt;10.0.0.0/16"
+      style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#8C4FFF;fillColor=#F4EBFF;verticalLabelPosition=top;verticalAlign=bottom;align=left;spacingBottom=0;dashed=0;fontStyle=1;fontSize=12;fontColor=#8C4FFF;"
+      vertex="1" parent="1">
+      <mxGeometry x="200" y="160" width="980" height="880" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- INTERNET GATEWAY                                              -->
+    <!-- ============================================================ -->
+    <mxCell id="igw"
+      value="Internet Gateway"
+      style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#8C4FFF;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.internet_gateway;"
+      vertex="1" parent="1">
+      <mxGeometry x="630" y="220" width="78" height="78" as="geometry" />
+    </mxCell>
+    <mxCell id="igw-label"
+      value="&lt;font style=&apos;font-size:10px;&apos; color=&apos;#555555&apos;&gt;igw-attached to VPC&lt;/font&gt;"
+      style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;"
+      vertex="1" parent="1">
+      <mxGeometry x="590" y="302" width="160" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- PUBLIC SUBNET                                                 -->
+    <!-- ============================================================ -->
+    <mxCell id="public-subnet"
+      value="&lt;b&gt;Public Subnet&lt;/b&gt;&lt;br&gt;10.0.1.0/24"
+      style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_public_subnet;strokeColor=#7AA116;fillColor=#F2F6E8;verticalLabelPosition=top;verticalAlign=bottom;align=left;spacingBottom=0;dashed=0;fontStyle=1;fontSize=12;fontColor=#7AA116;"
+      vertex="1" parent="1">
+      <mxGeometry x="230" y="350" width="900" height="340" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- FRONTEND EC2 (Public Subnet)                                 -->
+    <!-- ============================================================ -->
+    <mxCell id="frontend-ec2"
+      value="EC2: Frontend"
+      style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#EC7211;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.instance;"
+      vertex="1" parent="1">
+      <mxGeometry x="310" y="430" width="78" height="78" as="geometry" />
+    </mxCell>
+    <mxCell id="frontend-ec2-info"
+      value="&lt;b&gt;Amazon Linux 2&lt;/b&gt;&lt;br&gt;t2.micro (or configured type)"
+      style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="258" y="512" width="182" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- Nginx Docker container badge -->
+    <mxCell id="frontend-docker"
+      value="🐳 Docker: Nginx&lt;br&gt;&lt;b&gt;:8080&lt;/b&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#003087;arcSize=20;"
+      vertex="1" parent="1">
+      <mxGeometry x="265" y="554" width="170" height="46" as="geometry" />
+    </mxCell>
+
+    <!-- Frontend Security Group -->
+    <mxCell id="sg-frontend"
+      value="🔒 Security Group: Frontend&lt;br&gt;Inbound: 8080 (0.0.0.0/0), 22 (admin)&lt;br&gt;Outbound: all traffic"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9dbc8;strokeColor=#E8601C;fontSize=10;fontColor=#5D2E0C;arcSize=10;dashed=1;"
+      vertex="1" parent="1">
+      <mxGeometry x="254" y="608" width="196" height="56" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- PUBLIC ROUTE TABLE                                            -->
+    <!-- ============================================================ -->
+    <mxCell id="public-rt"
+      value="Route Table (Public)"
+      style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.route_table;"
+      vertex="1" parent="1">
+      <mxGeometry x="770" y="430" width="78" height="78" as="geometry" />
+    </mxCell>
+    <mxCell id="public-rt-info"
+      value="0.0.0.0/0 → IGW&lt;br&gt;10.0.0.0/16 → local"
+      style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="726" y="512" width="166" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- PRIVATE SUBNET                                                -->
+    <!-- ============================================================ -->
+    <mxCell id="private-subnet"
+      value="&lt;b&gt;Private Subnet&lt;/b&gt;&lt;br&gt;10.0.11.0/24"
+      style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_private_subnet;strokeColor=#147EBA;fillColor=#E8F4FC;verticalLabelPosition=top;verticalAlign=bottom;align=left;spacingBottom=0;dashed=0;fontStyle=1;fontSize=12;fontColor=#147EBA;"
+      vertex="1" parent="1">
+      <mxGeometry x="230" y="740" width="900" height="260" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- BACKEND EC2 (Private Subnet)                                 -->
+    <!-- ============================================================ -->
+    <mxCell id="backend-ec2"
+      value="EC2: Backend"
+      style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#EC7211;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.instance;"
+      vertex="1" parent="1">
+      <mxGeometry x="310" y="810" width="78" height="78" as="geometry" />
+    </mxCell>
+    <mxCell id="backend-ec2-info"
+      value="&lt;b&gt;Amazon Linux 2&lt;/b&gt;&lt;br&gt;t2.micro (or configured type)"
+      style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="258" y="892" width="182" height="36" as="geometry" />
+    </mxCell>
+
+    <!-- Backend Docker container badge -->
+    <mxCell id="backend-docker"
+      value="🐳 Docker: App Server&lt;br&gt;&lt;b&gt;:3000&lt;/b&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#1A4D1A;arcSize=20;"
+      vertex="1" parent="1">
+      <mxGeometry x="262" y="934" width="170" height="46" as="geometry" />
+    </mxCell>
+
+    <!-- Backend Security Group -->
+    <mxCell id="sg-backend"
+      value="🔒 Security Group: Backend&lt;br&gt;Inbound: 3000 from SG-Frontend&lt;br&gt;Outbound: all traffic"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#417505;fontSize=10;fontColor=#1A3C0A;arcSize=10;dashed=1;"
+      vertex="1" parent="1">
+      <mxGeometry x="256" y="986" width="196" height="56" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- PRIVATE ROUTE TABLE                                           -->
+    <!-- ============================================================ -->
+    <mxCell id="private-rt"
+      value="Route Table (Private)"
+      style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.route_table;"
+      vertex="1" parent="1">
+      <mxGeometry x="770" y="810" width="78" height="78" as="geometry" />
+    </mxCell>
+    <mxCell id="private-rt-info"
+      value="10.0.0.0/16 → local&lt;br&gt;&lt;font color=&apos;#CC0000&apos;&gt;No IGW route&lt;/font&gt;&lt;br&gt;No public IP assigned"
+      style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="726" y="892" width="166" height="48" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- INTERNET / USER (outside AWS, top)                           -->
+    <!-- ============================================================ -->
+    <mxCell id="internet-user"
+      value="Internet / Users"
+      style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#277116;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.user;"
+      vertex="1" parent="1">
+      <mxGeometry x="650" y="30" width="56" height="56" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- TERRAFORM (outside AWS cloud, left)                          -->
+    <!-- ============================================================ -->
+    <mxCell id="terraform-box"
+      value="&lt;b&gt;Terraform IaC&lt;/b&gt;&lt;br&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;Infrastructure Provisioning&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B42BC;strokeColor=#4A1E8C;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="30" y="560" width="110" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Terraform Modules -->
+    <mxCell id="tf-vpc-module"
+      value="module: vpc"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8D5F5;strokeColor=#7B42BC;fontSize=10;fontColor=#4A1E8C;"
+      vertex="1" parent="1">
+      <mxGeometry x="30" y="640" width="110" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="tf-sg-module"
+      value="module: security_groups"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8D5F5;strokeColor=#7B42BC;fontSize=10;fontColor=#4A1E8C;"
+      vertex="1" parent="1">
+      <mxGeometry x="30" y="680" width="110" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="tf-ec2-module"
+      value="module: ec2"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8D5F5;strokeColor=#7B42BC;fontSize=10;fontColor=#4A1E8C;"
+      vertex="1" parent="1">
+      <mxGeometry x="30" y="720" width="110" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- TRAFFIC FLOW ARROWS                                           -->
+    <!-- ============================================================ -->
+
+    <!-- 1. Internet User → IGW -->
+    <mxCell id="arrow-user-igw"
+      value="&lt;font style=&apos;font-size:10px;&apos; color=&apos;#005073&apos;&gt;HTTPS/HTTP&lt;br&gt;:8080&lt;/font&gt;"
+      style="rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#00AEF0;strokeWidth=2;fillColor=none;endArrow=block;endFill=1;fontColor=#005073;"
+      edge="1" source="internet-user" target="igw" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 2. IGW ↔ Frontend EC2 (bidirectional) -->
+    <mxCell id="arrow-igw-frontend"
+      value="&lt;font style=&apos;font-size:10px;&apos; color=&apos;#005073&apos;&gt;routed via&lt;br&gt;public route table&lt;/font&gt;"
+      style="rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#00AEF0;strokeWidth=2;fillColor=none;endArrow=block;endFill=1;startArrow=block;startFill=1;"
+      edge="1" source="igw" target="frontend-ec2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 3. Frontend EC2 → Backend EC2 (internal) -->
+    <mxCell id="arrow-frontend-backend"
+      value="&lt;font style=&apos;font-size:10px;&apos; color=&apos;#1A5E1A&apos;&gt;internal&lt;br&gt;:3000&lt;/font&gt;"
+      style="rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#67AB9F;strokeWidth=2;fillColor=none;endArrow=block;endFill=1;dashed=1;"
+      edge="1" source="frontend-ec2" target="backend-ec2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 4. Public RT → IGW association -->
+    <mxCell id="arrow-rt-igw"
+      value="0.0.0.0/0 → IGW"
+      style="rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#E7157B;strokeWidth=1;fillColor=none;endArrow=open;endFill=0;dashed=1;fontSize=9;"
+      edge="1" source="public-rt" target="igw" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 5. Terraform → VPC (provisions) -->
+    <mxCell id="arrow-tf-vpc"
+      value="&lt;font style=&apos;font-size:9px;&apos; color=&apos;#4A1E8C&apos;&gt;terraform apply&lt;/font&gt;"
+      style="rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#7B42BC;strokeWidth=1.5;fillColor=none;endArrow=block;endFill=1;dashed=1;"
+      edge="1" source="terraform-box" target="vpc" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- LEGEND BOX                                                    -->
+    <!-- ============================================================ -->
+    <mxCell id="legend"
+      value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;─── Internet traffic (port 8080)&lt;br&gt;- - - Internal traffic (port 3000)&lt;br&gt;🔒 Security Group boundary&lt;br&gt;🐳 Dockerized application container&lt;br&gt;🟣 Terraform module provision"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;fontSize=10;align=left;verticalAlign=top;spacingLeft=8;arcSize=8;"
+      vertex="1" parent="1">
+      <mxGeometry x="970" y="750" width="210" height="130" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- INFRASTRUCTURE SUMMARY BOX                                    -->
+    <!-- ============================================================ -->
+    <mxCell id="infra-summary"
+      value="&lt;b&gt;Infrastructure Summary&lt;/b&gt;&lt;br&gt;VPC CIDR: 10.0.0.0/16&lt;br&gt;Public Subnet: 10.0.1.0/24&lt;br&gt;Private Subnet: 10.0.11.0/24&lt;br&gt;Frontend: Nginx on :8080 (Docker)&lt;br&gt;Backend: App on :3000 (Docker)&lt;br&gt;IaC: Terraform (vpc, sg, ec2 modules)"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7B42BC;fontSize=10;align=left;verticalAlign=top;spacingLeft=8;arcSize=8;"
+      vertex="1" parent="1">
+      <mxGeometry x="970" y="590" width="210" height="150" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
